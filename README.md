@@ -1,30 +1,8 @@
-# What is Salt?
-=> a Python-based open-source remote execution framework used for:
-- Configuration management
-- Automation
-- Provisioning
-- Orchestration
+# Multi Master Redundancy System
 
-# Salt system architecture
-- Master-Client Model / Publisher-Subscriber Model
-    1. Master issues commands to client, client executes
-    / Master publishes jobs to be executed, client subscribes to job, when job applies to client, client executes job
-    2. When client finished executing job, client sends job return data back to master
+A simple Salt system of 2 masters and 2 minions (clients) to demonstrate redundancy with the Multi Master method.
 
-    - Salt Master => Server running `salt-master` service
-    - Salt Minion => Server running `salt-minion` service (registered to a particular Salt Master)
-
-- Targets => A group of minions across one or many masters, that a job's Salt command applies to
-    - e.g. `'*'` in:
-     ```
-     salt -v '*' pkg.install vim
-     ```
-
-- Grains => Interface to derive information about underlying system (OS, domain name, IP address, kernel, etc.)
-
-- Salt states => declares which state a minion should be in. Makes Configuration Management possible.
-
-# Getting Started
+## Getting Started
 1. Create all containers
 ```bash
 docker compose create
