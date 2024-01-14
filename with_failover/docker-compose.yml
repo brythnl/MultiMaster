@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  salt-master1:
+    hostname: salt-master1
+    build:
+      context: ./salt-master
+    networks:
+      - salt-network
+    command: salt-master --log-level=debug
+
+  salt-master2:
+    hostname: salt-master2
+    build:
+      context: ./salt-master
+    networks:
+      - salt-network
+    command: salt-master --log-level=debug
+
+  salt-minion1:
+    build:
+      context: ./salt-minion
+    networks:
+      - salt-network
+    command: salt-minion --log-level=debug
+
+  salt-minion2:
+    build:
+      context: ./salt-minion
+    networks:
+      - salt-network
+    command: salt-minion --log-level=debug
+
+networks:
+  salt-network:

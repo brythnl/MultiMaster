@@ -1,0 +1,15 @@
+pki_dir: /etc/salt/pki/minion
+
+master:
+  - salt-master1
+  - salt-master2
+
+master_type: failover
+
+random_master: True
+
+master_alive_interval: 10
+
+verify_master_pubkey_sign: True
+
+always_verify_signature: True
