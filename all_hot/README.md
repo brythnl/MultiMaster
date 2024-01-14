@@ -18,9 +18,14 @@ Run `./master1-shell.sh` / `./master2-shell.sh` to open interactive shell in eac
 docker compose restart salt-master2
 ```
 
-5. Add new (redundant) master to the minions' configuration in `/etc/salt/minion`
+5. Start minions and add new (redundant) master to the minions' configuration.
 Run `./minion1-shell.sh` / `./minion2-shell.sh` to open interactive shell in each minion container.
+```bash
+docker compose start salt-minion1 salt-minion2
 ```
+
+```
+# /etc/salt/minion
 master:
   - salt-master1
   - salt-master2 # New master
